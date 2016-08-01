@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Treat Yo Self</title>
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/stylesheets/loggedin.css">
+        <script src="https://code.jquery.com/jquery-git2.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top colorful">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#top">Top</a></li>
+                        <li><a href="/howtouse">How To Use</a></li>
+                        <li><a href="/tasks">Tasks</a></li>
+                        <li><a href="/dailies">Dailies</a></li>
+                        <li><a href="/treats">Treats</a></li>
+                        <li><a href="/history">History</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <form action="/points?_method=PUT" method="POST" class="navbar-form navbar-left">
+                            <div class="form-group">
+                                <input type="number" class="form-control" name="points" placeholder="Change Points Here">
+                            </div>
+                            <button type="submit" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i> Submit</button>
+                        </form>
+                        <li><a href="#">Welcome back, <%=currentUser.username%></a></li>
+                        <li><a href="#">Points: <%=currentUser.points%></a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        

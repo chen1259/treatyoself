@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Treat Yo Self</title>
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+        <script src="https://code.jquery.com/jquery-git2.min.js"></script>
+    </head>
+    <body>
+        <div id="firstBody">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                        <div class="navbar-brand">
+                            <p>Treat Yo Self 2016</p>
+                        </div>
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a class="white" href="#top">Top</a></li>
+                            <li><a class="white" href="#secondBody">About</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a class="btn btn-primary" role="button" id="loginbtn" href="/login">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+            <div class="container">
+                <div class="row">
+                    <div id="signupform">
+                        <% if(error && error.length > 0) { %>
+                            <div class="alert alert-danger" role="alert">
+                                <strong><%= error %></strong>
+                            </div>
+                        <% } %>
+                        <% if(success && success.length > 0) { %>
+                            <div class="alert alert-success" role="alert">
+                                <strong><%= success %></strong>
+                            </div>
+                        <% } %>
+                        <h1>Sign Up Now</h1>
+                        <h3>To Treat Yo Self</h3>
+                        <form action="/signup" method="POST">
+                            <div class="form-group">
+                                <input class="form-control" type="text" pattern=".{4,20}" required title="4 to 20 characters" name="username" placeholder="username">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="password" pattern=".{4,20}" required title="4 to 20 characters" name="password" placeholder="password">
+                            </div>
+                            <div class="form-group">
+                                <button id="midbtn" class="btn btn-success"><i class="fa fa-user-plus"></i>Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="secondBody">
+            <div class="container container-second-body">
+                        
+                <div class="col-md-4 col-sm-12">
+                    <div class="text-center thumbnail info-box">
+                        <h3>What is this?</h3>
+                        <p>This is a website made to keep track of what you do in order to earn points for youself and finally be able to treat yo self with the points you earned.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-12">
+                    <div class="text-center thumbnail info-box">
+                        <h3>What's with the name?</h3>
+                        <p>I got the name from this episode of the show Parks and Recreation, great show by the way.  Click on the youtube link to see how the pros really embody treat yo self.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-12">
+                    <div class="text-center thumbnail info-box">
+                        <h3>More Examples?</h3>
+                        <p>You exercise and eat healthy everyday which gives a rewarding body anyways. You save up enough points for a cheat day from this.  You could keep track of your kid's chores or homework and reward them appropiately.  You finally finished that essay and did well on your finals, so you treat yo self to a good day.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-12">
+                </div>
+                        
+                <div class="col-md-6 col-sm-12">
+                    <div class=" info-box">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OP3xf6BFEIo" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </body>
+</html>

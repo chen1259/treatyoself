@@ -1,0 +1,66 @@
+<% include ../partials/header %>
+
+<div class="container text-center" id="editContainer">
+    <h1>Currently editing, <%=task.title%></h1>
+</div>
+
+<div class="row">
+    <div id="newForm" style="display:block;">
+        <form action="/tasks/<%=task._id%>?_method=PUT" method="POST">
+            
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="task[title]" class="form-control" value="<%=task.title%>" placeholder="Put the title of your task here">
+            </div>
+            
+            <div class="form-group">
+                <label for="image">Image URL:</label>
+                <input type="text" id="image" name="task[image]" class="form-control" value="<%=task.image%>" placeholder="Find an image address that looks like your task (optional)">
+            </div>
+            
+            <label>Priority:</label>
+            <div class="form-group">
+                <label class="radio-inline">
+                  <input type="radio" name="task[priority]" id="inlineRadio1" value="Red">   Red
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="task[priority]" id="inlineRadio2" value="Yellow"> Yellow
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="task[priority]" id="inlineRadio3" checked="checked" value="Green"> Green
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <label for="deadline">Deadline:</label>
+                <input type="date" id="deadline" name="task[deadline]" value="
+                <% if(task.deadline !== null) { %>
+                    <%=task.deadline.getFullYear()%>-<%=task.deadline.getMonth()%>-<%=task.deadline.getDate()%>
+                    <% } %>" 
+                class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="reward">Reward:</label>
+                <input type="number" id="reward" name="task[reward]" value="<%=task.reward%>" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="penalty">Penalty:</label>
+                <input type="number" id="penalty" name="task[penalty]" value="<%=task.penalty%>" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="special">Special:</label>
+                <input type="text" id="special" name="task[special]" value="<%=task.special%>" placeholder="Special directions for task here (optional)" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <button class="btn btn-success" type="submit">Submit</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+<% include ../partials/footer %>

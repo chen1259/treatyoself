@@ -1,0 +1,119 @@
+<% include ../partials/header %>
+
+
+<header class="jumbotron jumboBot text-center colorful" id="top">
+    <div class="container">
+        <div class="container">
+            <% if(info && info.length > 0) { %>
+                <div class="alert alert-danger" role="alert">
+                    <strong><%= info %></strong>
+                </div>
+            <% } %>
+            <% if(success && success.length > 0) { %>
+                <div class="alert alert-success" role="alert">
+                    <strong><%= success %></strong>
+                </div>
+            <% } %>
+            <h1>These are all your tasks</h1>
+            <h3>Remember to do them! <button id="newFormBtn" class="btn btn-success">Add a new task</button>
+                <form class="inline-form" action="/tasks/<%=currentUser._id%>/allCompleted?_method=DELETE" method="POST">
+                    <button class="btn btn-primary" type="submit">Completed all tasks</button>
+                </form>
+                <form class="inline-form" action="/tasks/<%=currentUser._id%>/allFailed?_method=DELETE" method="POST">
+                    <button class="btn btn-danger" type="submit">Failed all tasks</button>
+                </form>
+            </h3>
+        </div>
+    </div>
+</header>
+
+
+<div class="row">
+    <div id="newForm">
+        <form action="/tasks" method="POST">
+            
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="task[title]" class="form-control" placeholder="Put the title of your task here">
+            </div>
+            
+            <div class="form-group">
+                <label for="image">Image URL:</label>
+                <input type="text" id="image" name="task[image]" class="form-control" placeholder="Find an image address that looks like your task (optional)">
+            </div>
+            
+            <label>Priority:</label>
+            <div class="form-group">
+                <label class="radio-inline">
+                  <input type="radio" name="task[priority]" id="inlineRadio1" value="Red">   Red
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="task[priority]" id="inlineRadio2" value="Yellow"> Yellow
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="task[priority]" id="inlineRadio3" checked="checked" value="Green"> Green
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <label for="deadline">Deadline:</label>
+                <input type="date" id="deadline" name="task[deadline]" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="reward">Reward:</label>
+                <input type="number" id="reward" name="task[reward]" value="0" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="penalty">Penalty:</label>
+                <input type="number" id="penalty" name="task[penalty]" value="0" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="special">Special:</label>
+                <input type="text" id="special" name="task[special]" placeholder="Special directions for task here (optional)" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <button class="btn btn-success" type="submit">Submit</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+<div class="container" id="show">
+    <div class="row text-center" id="showDiv">
+        <% user.tasks.forEach(function(task) { %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail <%=task.priority + "Border"%> alert alert-info">
+                    <img src="<%= task.image %>">
+                    <div class="caption">
+                        <h4><i class="fa fa-clock-o" aria-hidden="true"></i>  <%=task.created.toDateString()%></h4>
+                        <h3><%= task.title %></h3>
+                        <p><%= task.special %></p>
+                        <h4><i class="fa fa-info-circle" aria-hidden="true"></i> <%=task.priority%>  <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>  <%=task.reward%>  <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>  <%=task.penalty%></h4>
+                        <% if(task.deadline !== null) { %>
+                            <h4><i class="fa fa-exclamation-circle" aria-hidden="true"></i>  <%=task.deadline.toDateString()%></h4>
+                        <% } %>
+                        <p>
+                            <form action="/tasks/<%=task._id%>/success?_method=DELETE" method="POST" class="inline-form">
+                                <button class="btn btn-success btn-xs" type="submit">Success</button>
+                            </form>
+                            <a href="/tasks/<%=task._id%>/edit" class="btn btn-primary btn-xs inline-form" >Update</a>
+                            <form action="/tasks/<%=task._id%>?_method=DELETE" method="POST" class="inline-form">
+                                <button class="btn btn-warning btn-xs" type="submit">Delete</button>
+                            </form>
+                            <form action="/tasks/<%=task._id%>/fail?_method=DELETE" method="POST" class="inline-form">
+                                <button class="btn btn-danger btn-xs" type="submit">Fail</button>
+                            </form>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer %>

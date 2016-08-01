@@ -1,0 +1,99 @@
+<% include ../partials/header %>
+
+
+<header class="jumbotron jumboBot text-center colorful" id="top">
+    <div class="container">
+        <div class="container">
+            <% if(info && info.length > 0) { %>
+                <div class="alert alert-danger" role="alert">
+                    <strong><%= info %></strong>
+                </div>
+            <% } %>
+            <% if(success && success.length > 0) { %>
+                <div class="alert alert-success" role="alert">
+                    <strong><%= success %></strong>
+                </div>
+            <% } %>
+            <h1>These are all your treats</h1>
+            <h3>Treat Yo Self! <button id="newFormBtn" class="btn btn-success">Add a new treat</button>
+                <form class="inline-form" action="/treats/<%=currentUser._id%>/allCompleted?_method=DELETE" method="POST">
+                    <button class="btn btn-primary" type="submit">Cash in on all the treats!</button>
+                </form>
+            </h3>
+        </div>
+    </div>
+</header>
+
+
+<div class="row">
+    <div id="newForm">
+        <form action="/treats" method="POST">
+            
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="treat[title]" class="form-control" placeholder="Put the title of your treat here">
+            </div>
+            
+            <div class="form-group">
+                <label for="image">Image URL:</label>
+                <input type="text" id="image" name="treat[image]" class="form-control" placeholder="Find an image address that looks like your treat (optional)">
+            </div>
+            
+            <label>Priority:</label>
+            <div class="form-group">
+                <label class="radio-inline">
+                  <input type="radio" name="treat[priority]" id="inlineRadio1" value="Red">   Red
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="treat[priority]" id="inlineRadio2" value="Yellow"> Yellow
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="treat[priority]" id="inlineRadio3" checked="checked" value="Green"> Green
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="treat[price]" value="0" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="special">Special:</label>
+                <input type="text" id="special" name="treat[special]" placeholder="Special directions for treat here (optional)" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <button class="btn btn-success" type="submit">Submit</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+<div class="container" id="show">
+    <div class="row text-center" id="showDiv">
+        <% user.treats.forEach(function(treat) { %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail alert alert-info <%=treat.priority + "Border"%>">
+                    <img src="<%= treat.image %>">
+                    <div class="caption">
+                        <h3><%= treat.title %></h3>
+                        <p><%= treat.special %></p>
+                        <h3><i class="fa fa-info-circle" aria-hidden="true"></i> <%=treat.priority%>  <i class="fa fa-usd" aria-hidden="true"></i>  <%=treat.price%></h3>
+                        <p>
+                            <form action="/treats/<%=treat._id%>/success?_method=PUT" method="POST" class="inline-form">
+                                <button class="btn btn-success btn-sm" type="submit">Cash In</button>
+                            </form>
+                            <a href="/treats/<%=treat._id%>/edit" class="btn btn-primary btn-sm inline-form" >Update</a>
+                            <form action="/treats/<%=treat._id%>?_method=DELETE" method="POST" class="inline-form">
+                                <button class="btn btn-warning btn-sm" type="submit">Delete</button>
+                            </form>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer %>

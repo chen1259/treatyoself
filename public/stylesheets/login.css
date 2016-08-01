@@ -1,0 +1,15 @@
+body {
+    font-family: Raleway;
+    background-image: url("https://hd.unsplash.com/photo-1468476775582-6bede20f356f");
+    background-size: cover;
+    background-position: center; 
+}
+
+h1 {
+    text-align:center;
+}
+
+#loginForm {
+    margin:10em auto;
+    width:30%;
+}

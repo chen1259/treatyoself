@@ -1,0 +1,122 @@
+<% include ../partials/header %>
+
+<div class="container" style="margin-top: 100px;" id="show">
+    <div class="row" id="showDiv">
+        <div class="col-xs-12">
+            <% if(info && info.length > 0) { %>
+                <div class="alert alert-danger" role="alert">
+                    <strong><%= info %></strong>
+                </div>
+            <% } %>
+            <% if(success && success.length > 0) { %>
+                <div class="alert alert-success" role="alert">
+                    <strong><%= success %></strong>
+                </div>
+            <% } %>
+        </div>
+        
+        <div class="col-md-3 col-sm-6">
+            <div class=" alert alert-info">
+                <img src="">
+                <div class="caption">
+                    <h3 class="text-center">Tasks</h3>
+                    <p>Tasks are one-off things that you need to do for somebody or yourself.  They should usually have a higher reward and penalty than dailies.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 col-sm-6">
+            <div class=" alert alert-info">
+                <img src="">
+                <div class="caption">
+                    <h3 class="text-center">Dailies</h3>
+                    <p>Dailies are things you do everyday. You do them everyday so might as well give yourself a few points as a constant incentive to keep doing it. They won't be deleted like tasks, you must manually delete them.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 col-sm-6">
+            <div class=" alert alert-info">
+                <img src="">
+                <div class="caption">
+                    <h3 class="text-center">Treats</h3>
+                    <p>We finally get to the core reason this whole website exists, the treats of course.  Once you earn enough points, it's time to treat yo self, make sure you're being honest to yourself.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 col-sm-6">
+            <div class=" alert alert-info">
+                <img src="">
+                <div class="caption">
+                    <h3 class="text-center">History</h3>
+                    <p>A quick look back to the recent past in order to see what you've done and how much you were rewarded or penalized for it. It only goes back as far as the last 25 actions you've done.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-2 col-sm-4">
+            <div class=" alert alert-info">
+                <img src="">
+                <div class="caption">
+                    <h3 class="text-center"><i class="fa fa-info-circle" aria-hidden="true"></i></h3>
+                    <p class="text-center">This symbol represents the priority of the task, daily, or treat.  The colors used to represent priority are red, yellow, and green.  In order, they go from very important to lenient.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-2 col-sm-4">
+            <div class=" alert alert-info">
+                <img src="">
+                <div class="caption">
+                    <h3 class="text-center"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></h3>
+                    <p class="text-center">This symbol represents the reward of the task or daily.  Remember that the reward is based on your own honest opinion and will be added to your total points.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-2 col-sm-4">
+            <div class=" alert alert-info">
+                <img src="">
+                <div class="caption">
+                    <h3 class="text-center"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></h3>
+                    <p class="text-center">This symbol represents the penalty of the task or daily.  This is only important when you truly feel like the task or daily was underperformed or not done at all and needed to be done well.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-2 col-sm-4">
+            <div class=" alert alert-info">
+                <img src="">
+                <div class="caption">
+                    <h3 class="text-center"><i class="fa fa-usd" aria-hidden="true"></i></h3>
+                    <p class="text-center">This symbol represents the price you must pay for the treat to be earned.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-2 col-sm-4">
+            <div class=" alert alert-info">
+                <img src="">
+                <div class="caption">
+                    <h3 class="text-center"><i class="fa fa-clock-o" aria-hidden="true"></i></h3>
+                    <p class="text-center">This symbol is only seen on tasks. It represents the date that the task was created in order to let you know how long it has been since you opted to take the task.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-2 col-sm-4">
+            <div class=" alert alert-info">
+                <img src="">
+                <div class="caption">
+                    <h3 class="text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></h3>
+                    <p class="text-center">This symbol is only seen on tasks. It represents the deadline date which the task must be done according to you. It is optional and may extended if you want by updating.</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<% include ../partials/footer %>

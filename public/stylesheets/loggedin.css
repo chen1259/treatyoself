@@ -1,0 +1,71 @@
+body {
+    font-family: Raleway;
+    background: #B3FFAB; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #B3FFAB , #12FFF7); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #B3FFAB , #12FFF7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}  
+
+.jumboBot {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.colorful {
+    background: #B3FFAB; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #B3FFAB , #12FFF7); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #B3FFAB , #12FFF7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+label {
+    display: inline-block;
+    vertical-align: middle;    
+}
+
+.downABit {
+    padding-top: 10px;
+    background-color:yellow;
+}
+
+.same-line {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#editContainer {
+    margin-top: 50px;
+}
+
+#newForm {
+    width:30%;
+    margin:25px auto;
+    display:none;
+}
+
+#show {
+    margin-top: 25px;
+}
+
+#showHistory {
+    margin-top:5em;
+}
+
+#showDiv {
+    display:flex; 
+    flex-wrap: wrap;
+}
+
+.inline-form {
+    display:inline-block;
+}
+
+.GreenBorder {
+    border: 6px solid green;
+}
+
+.YellowBorder {
+    border: 6px solid yellow;
+}
+
+.RedBorder {
+    border:6px solid red;
+}
