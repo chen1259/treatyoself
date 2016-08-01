@@ -13,6 +13,8 @@ var express     = require("express"),
     Task = require("./models/task"),
     Treat = require("./models/treat"),
     methodOverride = require("method-override");
+    
+var port = 3000 || process.env.PORT;
 
 
 //Additional setup with some of the required files
@@ -59,6 +61,6 @@ app.use(taskRoutes);
 app.use(dailyRoutes);
 app.use(treatRoutes);
 
-app.listen(process.env.PORT, process.env.IP, function(){
-   console.log("It's time to treat yo self.");
+app.listen(port, process.env.IP, function(){
+    console.log("Running on port " + process.env.PORT + " and ip of " + process.env.IP);
 });
