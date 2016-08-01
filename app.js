@@ -61,6 +61,6 @@ app.use(taskRoutes);
 app.use(dailyRoutes);
 app.use(treatRoutes);
 
-app.listen(port, process.env.IP, function(){
-    console.log("Running on port " + process.env.PORT + " and ip of " + process.env.IP);
+app.listen(port, "138.68.11.174", function(){
+    console.log("Running on port " + port);
 });
