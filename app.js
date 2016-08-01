@@ -16,7 +16,7 @@ var express     = require("express"),
 
 
 //Additional setup with some of the required files
-mongoose.connect("mongodb://localhost/treatyoself");
+mongoose.connect("mongodb://127.0.0.1:27017/treatyoself");
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
