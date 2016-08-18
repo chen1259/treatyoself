@@ -28,7 +28,7 @@ app.use(flash());
 
 //Passport configuration
 app.use(require("express-session")({
-    secret: "Treat yo self 2016",
+    secret: "Changed this from original password secret",
     resave: false,
     saveUninitialized: false
 }));
@@ -61,6 +61,6 @@ app.use(taskRoutes);
 app.use(dailyRoutes);
 app.use(treatRoutes);
 
-app.listen(port, "138.68.11.174", function(){
+app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Running on port " + port);
 });
