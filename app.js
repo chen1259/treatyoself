@@ -18,7 +18,7 @@ var port = 3000 || process.env.PORT;
 
 
 //Additional setup with some of the required files
-mongoose.connect("mongodb://127.0.0.1:27017/treatyoself");
+mongoose.connect("changed the database");
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
